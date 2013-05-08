@@ -7,8 +7,6 @@ import java.io.InputStreamReader;
 import org.apache.amber.oauth2.client.OAuthClient;
 import org.apache.amber.oauth2.client.URLConnectionClient;
 import org.apache.amber.oauth2.client.request.OAuthClientRequest;
-import org.apache.amber.oauth2.client.response.OAuthClientResponse;
-import org.apache.amber.oauth2.client.response.OAuthResourceResponse;
 import org.apache.amber.oauth2.client.response.OAuthJSONAccessTokenResponse;
 import org.apache.amber.oauth2.common.exception.OAuthProblemException;
 import org.apache.amber.oauth2.common.exception.OAuthSystemException;
@@ -76,10 +74,10 @@ public class App
 			return;
 		}
         
-        OAuthClient client;
-        client = new OAuthClient(new URLConnectionClient());
+        OAuthClient oauthclient;
+        oauthclient = new OAuthClient(new URLConnectionClient());
         try {
-			response = client.accessToken(request);
+			response = oauthclient.accessToken(request);
 		} catch (OAuthSystemException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
